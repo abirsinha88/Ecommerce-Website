@@ -1,1 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.header-container{
+    height: 110px;
+    background-color: #FFF7ED ;
+    padding: 36px 26px;
+    border: 1px solid black;
 
+}
+.header-logo-container{
+    height: 100%;
+    width: 25%;
+    border: 1px solid black;
+}
+.header-logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
