@@ -14,7 +14,19 @@ function App() {
         <img src="../public/icon.png" alt="Logo" />
         </Link>
         </div>
-      </div>
+        <div className="nav-link-container">
+          <ul>
+            <li>
+              <Link to="/cart" element="">Cart</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+          
+          
+        </div>
+              </div>
      </header>
   <Routes >
     <Route path="/" element = {<Home />}/>
