@@ -7,7 +7,7 @@
     height: 110px;
     background-color: #FFF7ED ;
     padding: 0px 26px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: end;
 
@@ -17,7 +17,7 @@
     margin-right: auto;
     height: 100%;
     width: 250px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 40px 90px 30px 0px;
     
 }
@@ -46,5 +46,45 @@
 
   font-weight: 600;
   font-style: normal;
-  letter-spacing: 0%;
+  letter-spacing: 0px;
 }
+.carousel-image{
+    height: 380px;
+}
+.image-container{
+height: 100%;
+overflow: hidden;
+position: relative;
+}
+.image-container img.carousal{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 53%;
+    
+}
+.image-container svg{
+    position: absolute;
+    top: 165px;
+    /* bottom: 0px; */
+    width: 50px;
+    height: 50px;
+    /* z-index: 10; */
+}
+/* .image-container img.icon-forward{
+    position: absolute;
+    top: 165px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+} */
+/* .image-container svg:last-child{
+    position: absolute;
+    top: 165px;
+    left: 730px;
+    /* right: 20px; */
+    /* width: 50px;
+    height: 50px;
+    z-index: 10;
+} */ */

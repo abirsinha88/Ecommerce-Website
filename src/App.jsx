@@ -11,7 +11,7 @@ function App() {
       <div className='header-container'>
         <div className="header-logo-container">
            <Link to="/"> 
-        <img src="../public/icon.png" alt="Logo" />
+        <img src="Logo.png" alt="Logo" />
         </Link>
         </div>
         <div className="nav-link-container">
