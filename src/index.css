@@ -72,9 +72,18 @@ top: 0px;
 bottom: 0px;
 }
 .img-slider-btn > *{
-    /* position: absolute; */
-    /* display: block; */
     width: 50px;
     height: 50px;
-    /* z-index: 10; */
+
+}
+.product-tile-container{
+    display: flex;
+    flex-direction: column;
+}
+.product-tile-container ul{
+    display: flex;
+    flex-basis: 200px;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
 }

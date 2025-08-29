@@ -1,4 +1,5 @@
 import Home from './Home'
+import ProductDetails from './ProductDetails'
 import {BrowserRouter, Routes, Route,Link} from 'react-router-dom'
 
 
@@ -11,7 +12,7 @@ function App() {
       <div className='header-container'>
         <div className="header-logo-container">
            <Link to="/"> 
-        <img src="Logo.png" alt="Logo" />
+        <img src="../public/Logo.png" alt="Logo" />
         </Link>
         </div>
         <div className="nav-link-container">
@@ -30,6 +31,7 @@ function App() {
      </header>
   <Routes >
     <Route path="/" element = {<Home />}/>
+    <Route path="/products/:id" element = {<ProductDetails />}/>
   </Routes>
   </BrowserRouter>
     
