@@ -11,7 +11,7 @@ function Home(){
 
     return (
      <>
-        <div style={{maxWidth:"1270px", width:"100%",height:"300px",
+        <div style={{maxWidth:"1270px", width:"100%",height:"360px",
             margin: "0px auto"
        }}>
             <ImageSlider imageurls={{images}}/>

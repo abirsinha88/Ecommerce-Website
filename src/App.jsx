@@ -33,6 +33,11 @@ function App() {
     <Route path="/" element = {<Home />}/>
     <Route path="/products/:id" element = {<ProductDetails />}/>
   </Routes>
+  <footer>
+      <div className="footer-container">
+        <small>GLAMOURLY</small>
+      </div>
+  </footer>
   </BrowserRouter>
     
   
