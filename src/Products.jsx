@@ -11,19 +11,24 @@ function Products() {
   }, []);
 
   return (
-    <div className="product-tile-container">
-      <h2>Featured Products</h2>
+    <div className="featured-container">
+      <div className="featured-header">
+        <h2>Featured Products</h2>
+      </div>
+      <div className="featured-content">
       <ul>
         {products.map((p) => (
           <li key={p.id} className="product-tile" >
             <Link to={`/Products/${p.id}`}>
             <img src={p.url} alt="" />
-            <h3>{p.name} - ${p.price}</h3>
-            <p><strong>Category:</strong> {p.category}</p>
+             <p>{p.category}</p>
+            <p>{p.name}</p>
+           <p>{p.price}</p>
             </Link>            
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }

@@ -11,19 +11,19 @@ export function makeServer({ environment = "development" } = {}) {
       let products = [
         {
           id: "1",
-          name: "Check Button-Up Shirt",
+          name: "Check Shirt",
           price: 45,
           description: "Stylish black and white plaid shirt with a relaxed fit.",
           category: "Shirts",
-          url: "img-6.jpg"
+          url: "img-9.jpg"
         },
         {
           id: "2",
-          name: "Classic White Dress Shirt",
+          name: "White Dress Shirt",
           price: 55,
           description: "Formal white dress shirt, perfect for office or events.",
           category: "Shirts",
-          url: "img-2.jpg"
+          url: "img-8.jpg"
         },
         {
           id: "3",
@@ -35,7 +35,7 @@ export function makeServer({ environment = "development" } = {}) {
         },
         {
           id: "4",
-          name: "Orange Crewneck Sweatshirt",
+          name: "Orange Sweatshirt",
           price: 35,
           description: "Casual crewneck sweatshirt in bright orange.",
           category: "Sweatshirts",
@@ -43,7 +43,7 @@ export function makeServer({ environment = "development" } = {}) {
         },
         {
           id: "5",
-          name: "Blue Casual Shirt",
+          name: "Blue Shirt",
           price: 40,
           description: "Light blue casual shirt, great for everyday wear.",
           category: "Shirts",
@@ -51,11 +51,11 @@ export function makeServer({ environment = "development" } = {}) {
         },
         {
           id: "6",
-          name: "Minimalist White Outfit",
+          name: "White Sweatshirt",
           price: 65,
           description: "Minimal and modern white outfit, elegant style.",
-          category: "Dresses",
-          url: "img-3.jpg"
+          category: "Sweatshirts",
+          url: "img-10.jpg"
         }
       ];
 

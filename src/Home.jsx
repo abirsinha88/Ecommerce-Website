@@ -1,6 +1,6 @@
-import carousel1 from "../public/carousel-1.jpg";
+import carousel1 from "../public/carousel-7.jpg";
 import carousel2 from "../public/carousel-2.jpg";
-import carousel3 from "../public/carousel-3.jpg";
+import carousel3 from "../public/carousel-8.jpg";
 import ImageSlider from "./ImageSlider.jsx"
 import Products from "./Products.jsx"
 
