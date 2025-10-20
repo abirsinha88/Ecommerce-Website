@@ -1,4 +1,4 @@
-import Home from './Home'
+import Home from './pages/home'
 import ProductDetails from './ProductDetails'
 import {BrowserRouter, Routes, Route,Link} from 'react-router-dom'
 
@@ -8,7 +8,7 @@ function App() {
 
   return (
      <BrowserRouter>
-     <header>
+     {/* <header>
       <div className='header-container'>
         <div className="header-logo-container">
            <Link to="/"> 
@@ -28,16 +28,16 @@ function App() {
           
         </div>
               </div>
-     </header>
+     </header> */}
   <Routes >
     <Route path="/" element = {<Home />}/>
-    <Route path="/products/:id" element = {<ProductDetails />}/>
+     {/* <Route path="/products/:id" element = {<ProductDetails />}/> */}
   </Routes>
-  <footer>
+  {/* <footer>
       <div className="footer-container">
         <small>GLAMOURLY</small>
       </div>
-  </footer>
+  </footer> */}
   </BrowserRouter>
     
   

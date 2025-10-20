@@ -3,11 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
-*{
+/* *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
+} */
 .header-container{
     height: 70px;
     background-color: #FFF7ED ;
