@@ -1,5 +1,5 @@
 import Home from './pages/home'
-import ProductDetails from './ProductDetails'
+// import ProductDetails from './ProductDetails'
 import {BrowserRouter, Routes, Route,Link} from 'react-router-dom'
 
 
