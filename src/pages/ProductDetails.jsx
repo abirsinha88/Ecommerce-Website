@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button } from "@/components/ui/button"; // shadcn button
+import { Button } from "@/components/ui/button";
+import { useCartDispatch } from "../contexts/CartContext";
+
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const dispatch = useCartDispatch();
 
   useEffect(() => {
     fetch(`/api/products/${id}`)
@@ -31,7 +34,7 @@ export default function ProductDetails() {
         <p className="text-lg text-gray-700">{product.description}</p>
         <p className="text-2xl font-semibold">₹{product.price}</p>
 
-        <Button className="w-full md:w-auto">
+        <Button className="w-full md:w-auto" onClick={() =>  dispatch({ type: "INCREASE", id:product.id })} >
           Add to Cart
         </Button>
       </div>
