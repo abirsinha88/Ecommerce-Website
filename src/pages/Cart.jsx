@@ -1,17 +1,20 @@
 
 import { useCart,useCartDispatch } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
+import CartItem from "../components/CartItem";
+import { useState,useEffect } from "react";
+import { useProducts } from "../contexts/ProductContext";
+
 
 export default function CartPage() {
-  
   const cart = useCart();
-  const dispatch = useCartDispatch();
-  const total = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+  const {products} = useProducts();
+  let productsInCart = products.filter((product)=> {
+    if( cart.length > 0 && cart.find((item)=>item.id == product.id) != undefined)
+      return true;
+  }) 
 
-
-  const updateQty = (id, quantity) => {
-    dispatch({ type: "UPDATE_QTY", id, quantity });
-  };
+  const total = productsInCart.reduce((sum, item) => sum + item.price * cart.find(product => product.id == item.id).quantity, 0);
 
   return (
     <div className="px-6 py-12 max-w-5xl mx-auto">
@@ -29,44 +32,8 @@ export default function CartPage() {
           {/* Items */}
           <div className="md:col-span-2 space-y-4">
             {cart.map((item) => (
-              <div
-                key={item.id}
-                className="flex gap-4 border rounded-lg p-4 hover:shadow-md transition"
-              >
-                <img
-                  src={`/${item.image}`}
-                  alt={item.name}
-                  className="w-24 h-24 object-cover rounded-lg"
-                />
-
-                <div className="flex-1">
-                  <h2 className="font-semibold text-lg">{item.name}</h2>
-                  <p className="text-gray-600">${item.price}</p>
-
-                  <div className="flex items-center mt-2 gap-3">
-                    <label className="text-sm">Qty:</label>
-                    <input
-                      type="number"
-                      min="1"
-                      value={item.quantity || 1}
-                      onChange={(e) => updateQty(item.id, Number(e.target.value))}
-                      className="w-16 border rounded px-2 py-1"
-                    />
-                  </div>
-
-                  <button
-                    className="text-red-600 text-sm mt-3 hover:underline"
-                    onClick={() =>  dispatch({ type: "DECREASE", id:item.id })}
-                  >
-                    Decrease
-                  </button>
-                  <button
-                    className="text-red-600 text-sm mt-3 hover:underline"
-                    onClick={() =>  dispatch({ type: "REMOVE", id:item.id })}
-                  >
-                    Remove
-                  </button>
-                </div>
+              <div key={item.id}  className="flex gap-4 border rounded-lg p-4 hover:shadow-md transition">
+                <CartItem {...item}  />
               </div>
             ))}
           </div>

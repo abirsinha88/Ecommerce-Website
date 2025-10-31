@@ -5,6 +5,7 @@ import HomeLayout from './components/HomeLayout'
 import ProductDetails from './pages/ProductDetails'
 import {BrowserRouter, Routes, Route,Link} from 'react-router-dom'
 import { CartProvider } from './contexts/CartContext'
+import { ProductProvider } from './contexts/ProductContext'
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
   return (
      <BrowserRouter>
           <CartProvider>
+          <ProductProvider>
+
         <Routes >
             <Route path="/" element={<HomeLayout/>}>
               <Route index element = {<Home />}/>
@@ -22,6 +25,7 @@ function App() {
             </Route>
         
         </Routes>
+          </ProductProvider>
           </CartProvider>
       </BrowserRouter>
     
