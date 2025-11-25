@@ -10,8 +10,8 @@ export default function Home() {
   const [ products,setProducts] = useState([]);
   useEffect(()=>{
     
-    fetch("/api/products")
-    .then( res=> res.json())
+    fetch("http://localhost:5000/api/products")
+    .then( res => res.json())
     .then( data => setProducts(data.products));
   },[]);
 

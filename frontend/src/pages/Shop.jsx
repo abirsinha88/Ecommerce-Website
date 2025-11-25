@@ -6,7 +6,7 @@ export default function Shop() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch("http://localhost:5000/api/products")
       .then(res => res.json())
       .then(data => setProducts(data.products))
       .catch(err => console.error("Error:", err));

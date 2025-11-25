@@ -10,7 +10,7 @@ export default function ProductDetails() {
   const dispatch = useCartDispatch();
 
   useEffect(() => {
-    fetch(`/api/products/${id}`)
+    fetch(`http://localhost:5000/api/products/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data))
       .catch(err => console.error("Error:", err));
