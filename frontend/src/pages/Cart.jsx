@@ -2,7 +2,7 @@
 import { useCart,useCartDispatch } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
-import { useState,useEffect } from "react";
+import CartSummary from "../components/CartSummary";
 import { useProducts } from "../contexts/ProductContext";
 
 
@@ -29,7 +29,6 @@ export default function CartPage() {
         </div>
       ) : (
         <div className="grid md:grid-cols-3 gap-6">
-          {/* Items */}
           <div className="md:col-span-2 space-y-4">
             {cart.map((item) => (
               <div key={item.id}  className="flex gap-4 border rounded-lg p-4 hover:shadow-md transition">
@@ -37,20 +36,10 @@ export default function CartPage() {
               </div>
             ))}
           </div>
+          <CartSummary total={total} />
 
         
-          <div className="border rounded-lg p-6 h-fit bg-gray-50">
-            <h3 className="font-semibold text-xl mb-4">Order Summary</h3>
-
-            <div className="flex justify-between text-gray-700 mb-3">
-              <span>Total:</span>
-              <span className="font-bold">${total.toFixed(2)}</span>
-            </div>
-
-            <button className="w-full bg-black text-white py-3 rounded-lg hover:opacity-80 transition">
-              Checkout
-            </button>
-          </div>
+          
         </div>
       )}
     </div>
