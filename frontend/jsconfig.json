@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+        "allowJs": true,        // allow .js/.jsx files in the project
+    "checkJs": false,       // optional: enable if you want JS type checking
+    "jsx": "react-jsx", 
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["./src*"]
+    }
+  }
+}

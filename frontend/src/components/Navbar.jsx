@@ -1,20 +1,33 @@
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
+import MyBadge from "./MyBadge";
+import { SearchBar } from "./Searchbar"
+import { ShoppingCart } from 'lucide-react';
+import Myavatar from "./MyAvatar";
 export function Navbar() {
   return (
     <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
       <h1 className="text-2xl font-bold text-gray-900">GLAMOURLY</h1>
       <div className="flex gap-4">
 
-        <Link to='/'>
-          <Button variant="ghost">Home</Button>
+        <SearchBar/>
+        <Link to='/' >
+          <Button variant="link">Home</Button>
         </Link>
         <Link to='/shop'>
-            <Button variant="ghost">Shop</Button>
+            <Button variant="link">Shop</Button>
         </Link>
-          <Link to='/cart'>
-            <Button variant="ghost">Cart</Button>
+          <Link to='/cart' className="self-center relative">
+            <ShoppingCart  />
+            <MyBadge  className="absolute right-0" variant="destructive">Badge</MyBadge>
         </Link>
+        <Link to='/login'>
+            <Button variant="link">Login</Button>
+        </Link>
+        <Link to='/login'>
+            <Myavatar/>
+        </Link>
+
       </div>
     </nav>
   )
