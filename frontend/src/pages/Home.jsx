@@ -8,6 +8,7 @@ import carousel1 from "../../public/carousel-1.jpg";
 import carousel2 from "../../public/carousel-2.jpg";
 import carousel3 from "../../public/carousel-3.jpg";
 import ImageSlider from "../components/ImageSlider"
+import { MySheet } from "@/components/MySheet"
 
 const imageUrls=[carousel1,carousel2,carousel3];
 console.log(imageUrls);
@@ -32,13 +33,14 @@ export default function Home() {
        
         <div className=" relative max-w-7xl h-130 mr-auto ml-auto overflow-hidden" >
             <ImageSlider imageUrls={imageUrls}/>
-             <div className="absolute  top-[50%] bottom-20 left-[50%] right-20 -translate-[50%] [50%] flex flex-col justify-center items-center">
+             {/* <div className="absolute  top-[50%] bottom-20 left-[50%] right-20 -translate-[50%] [50%] flex flex-col justify-center items-center">
                 <Hero />
-             </div>
+             </div> */}
         </div>
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-8 py-12">
         {productElements }
       </section>
+      
 
     </>
   )

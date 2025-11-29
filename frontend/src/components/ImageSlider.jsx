@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowBigLeft, Circle, CircleDot } from "lucide-react";
 import { ArrowBigRight } from "lucide-react";
-
+import { Hero } from "./Hero";
 function ImageSlider({imageUrls}){
      const [imageIndex, setimageIndex] = useState(0);
      function previousImage(){
@@ -23,8 +23,13 @@ function nextImage(){
        <>
             <div className= {`w-full h-full flex transition-transform duration-300 ease-in-out`} style={{transform : `translateX(${-100*imageIndex}%)`}}>
                 {
-                    imageUrls.map((url)=>
+                    imageUrls.map((url,index)=>
+                        <>
                         <img  key={url} src={url} alt="" className ={`shrink-0 w-full h-full object-cover `} />
+                        <div className=" w-full absolute left-[50%] bottom-[50%] -translate-x-[50%] text-center translate-y-[50%]" style={{transform : `translateX(${100*index}%)`}} >
+                                <Hero/>
+                            </div> 
+                        </>
                     )
                 }
             </div>
