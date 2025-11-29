@@ -6,7 +6,7 @@ export default function HomeLayout(){
         <>
     <div className="flex flex-col min-h-screen">
       <Navbar />      
-      <main className="">
+      <main className="grow-1">
         <Outlet />
       </main>
       <Footer />
