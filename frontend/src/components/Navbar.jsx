@@ -17,6 +17,9 @@ export function Navbar() {
         <Link to='/' >
           <Button variant="link">Home</Button>
         </Link>
+        <Link to='/shop' >
+          <Button variant="link">Shop</Button>
+        </Link>
       
           <Link to='/cart' className="self-center relative">
             <MySheet/>

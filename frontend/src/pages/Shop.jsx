@@ -4,12 +4,8 @@ import { ProductCard } from "../components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion,AccordionContent,AccordionItem,AccordionTrigger} from "@/components/ui/accordion";
+import {Breadcrumb,BreadcrumbEllipsis,BreadcrumbItem,BreadcrumbLink,BreadcrumbList,BreadcrumbPage,BreadcrumbSeparator} from "@/components/ui/breadcrumb"
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
@@ -23,9 +19,11 @@ export default function Shop() {
   }, []);
 
   return (
-    <div className="grid grid-cols-[220px_1fr] grid-rows-[1fr_5fr] overflow-hidden">
-      <div className="col-span-2">
-        <h1 className="text-6xl font-medium px-10 pt-7">All Products</h1>
+    <div className="grid grid-cols-[220px_800px] grid-rows-[1fr_5fr] justify-center">
+      <div className="col-span-2 w-100 h-30 self-center flex flex-col justify-around">
+        <h1 className="text-6xl font-medium">All Products</h1>
+          <BreadcrumbCollapsed/>     
+        
       </div>
       <div className="row-start-2 flex flex-col px-10">
         <Accordion
@@ -88,7 +86,7 @@ export default function Shop() {
         </Accordion>
         <Separator />
       </div>
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((p) => (
           <Link key={p.id} to={`/shop/${p.id}`}>
             <ProductCard product={p} />
@@ -97,4 +95,21 @@ export default function Shop() {
       </section>
     </div>
   );
+}
+function BreadcrumbCollapsed() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/">Home</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>products</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
 }
