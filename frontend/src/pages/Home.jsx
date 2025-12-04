@@ -7,7 +7,7 @@ import Footer from "../components/Footer"
 import carousel1 from "../../public/carousel-1.jpg";
 import carousel2 from "../../public/carousel-2.jpg";
 import carousel3 from "../../public/carousel-3.jpg";
-import ImageSlider from "../components/ImageSlider"
+import {Slider}from "../components/Slider"
 import { MySheet } from "@/components/MySheet"
 
 const imageUrls=[carousel1,carousel2,carousel3];
@@ -23,21 +23,41 @@ export default function Home() {
     .then( res => res.json())
     .then( data => setProducts(data.products));
   },[]);
-
+  
+  
   const productElements = products.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ));
+    <ProductCard key={p.id} product={p} />
+  ));
   
   return (
     <>
        
-        <div className=" relative max-w-7xl h-130 mr-auto ml-auto overflow-hidden" >
-            <ImageSlider imageUrls={imageUrls}/>
+        <div className=" relative max-w-7xl h-130 mx-auto overflow-hidden" >
+            <Slider itemWidth={"w-screen"}>
+              {imageUrls.map((url,index)=>{
+                return(
+                  <>
+                  
+                  <img key={url} src={url} alt="" className={`shrink-0 w-full h-full object-cover `}/>
+                    <div
+              className=" w-full absolute left-[50%] bottom-[50%] -translate-x-[50%] text-center translate-y-[50%]"
+              
+              >
+              <Hero />
+            </div>
+              </>
+                )
+              })}
+            </Slider>
         </div>
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-8 py-12">
-        {productElements }
-      </section>
-      
+
+
+      <div className=" relative max-w-7xl h-100 mx-auto overflow-hidden" >
+              <Slider itemWidth={"w-64"}>
+                {productElements}
+              </Slider>
+      </div>
+          
 
     </>
   )
