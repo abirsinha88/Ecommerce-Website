@@ -21,7 +21,7 @@ export function Navbar() {
           <Button variant="link">Home</Button>
         </Link>
         <Link to='/products' >
-          <Button variant="link">Shop</Button>
+          <Button variant="link">Products</Button>
         </Link>
       
         <Link to='/login'>

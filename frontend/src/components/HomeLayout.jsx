@@ -3,7 +3,7 @@ import {Navbar} from './Navbar'
 import { Outlet } from "react-router-dom";
 export default function HomeLayout(){
     return(
-        <>
+        
     <div className="flex flex-col min-h-screen">
       <Navbar />      
       <main className="grow-1">
@@ -12,6 +12,6 @@ export default function HomeLayout(){
       <Footer />
     </div>
         
-        </>
+      
     )
 }

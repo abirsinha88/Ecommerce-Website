@@ -1,7 +1,9 @@
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Cart from './pages/Cart'
+import { Login } from './pages/Login'
 import HomeLayout from './components/HomeLayout'
+import { Navbar } from './components/Navbar'
 import ProductDetails from './pages/ProductDetails'
 import {BrowserRouter, Routes, Route,Link} from 'react-router-dom'
 import { CartProvider } from './contexts/CartContext'
@@ -22,8 +24,9 @@ function App() {
               <Route path='/products' element = {<Shop />}/>
               <Route path='/products/:id' element = {<ProductDetails />}/>
               <Route path='/cart' element = {<Cart />}/>
-            </Route>
-        
+              <Route path='/login' element = {<Login/>}/>
+          
+        </Route>
         </Routes>
           </ProductProvider>
           </CartProvider>

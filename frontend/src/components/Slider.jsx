@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,Fragment } from "react";
 import { ArrowBigLeft, Circle, CircleDot } from "lucide-react";
 import { ArrowBigRight } from "lucide-react";
 import { Hero } from "./Hero";
@@ -22,13 +22,15 @@ function Slider({children,itemWidth }) {
        
       >
         {children.map((child, index) => (
-          <>
-            <div  style={{ transform: `translateX(${-100 * itemIndex}%)` }} className={itemWidth+" shrink-0"}>
+            <Fragment key={index}>
+
+          <div  style={{ transform: `translateX(${-100 * itemIndex}%)` }} className={itemWidth+" shrink-0"}>
             {child}
 
             </div>
           
-          </>
+            </Fragment>
+        
         ))}
       </div>
 
@@ -46,7 +48,7 @@ function Slider({children,itemWidth }) {
       </button>
       <div className="absolute  left-[50%] -translate-[50%] bottom-2 flex gap-1">
         {children.map((_, index) => (
-          <button className="w-4 h-4" onClick={() => setitemIndex(index)}>
+          <button  key={index} className="w-4 h-4" onClick={() => setitemIndex(index)}>
             {index === itemIndex ? (
               <CircleDot className="stroke-white fill-black w-full h-full" />
             ) : (

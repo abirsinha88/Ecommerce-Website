@@ -7,7 +7,7 @@ export function Hero() {
       <p className="text-gray-600 mb-6 text-white ">
         Explore the latest trends and timeless classics. Your perfect outfit awaits.
       </p>
-       <Link to='/shop'>
+       <Link to='/products'>
           <Button size="lg">Shop Now</Button>
        </Link>
    </>
