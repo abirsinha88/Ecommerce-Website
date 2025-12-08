@@ -1,7 +1,7 @@
 export function Login(){
     return(
         <>
-            <form action="localhost:5000/api/users" method="post">
+            <form action="http://localhost:5000/api/users" method="post">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" />
                 <label htmlFor="email">Email</label>
