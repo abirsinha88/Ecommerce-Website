@@ -36,7 +36,7 @@ export default function ProductDetails() {
   useEffect(() => {
     fetch(`http://localhost:5000/api/products/${id}`)
       .then((res) => res.json())
-      .then((data) => setProduct(data))
+      .then((data) => setProduct(data[0]))
       .catch((err) => console.error("Error:", err));
   }, [id]);
 
@@ -47,7 +47,7 @@ export default function ProductDetails() {
         <PageHeader header={product.category} isFilterRequired={false}/>
       <div className="max-w-70 justify-self-end">
         <img
-          src={`/${product.image}`}
+          src={`/${product.image_url}`}
           alt={product.name}
           className="w-full rounded-xl shadow h-100 object-cover object-top"
         />
@@ -55,7 +55,7 @@ export default function ProductDetails() {
 
       <div className="flex flex-col gap-3 max-w-70">
         <h1 className="text-3xl font-bold">{product.name}</h1>
-        <h3>SKU: 0004</h3>
+        <h3>SKU: {product.id}</h3>
         <p className="text-2xl font-semibold">₹{product.price}</p>
         <p className="text-lg text-gray-700">{product.description}</p>
         <h3>Color</h3>

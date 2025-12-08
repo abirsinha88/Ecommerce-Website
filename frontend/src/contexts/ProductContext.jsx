@@ -8,7 +8,7 @@ export function ProductProvider({ children }) {
 useEffect(() => {
       fetch("http://localhost:5000/api/products")
         .then(res => res.json())
-        .then(data => setProducts(data.products))
+        .then(data => setProducts(data))
         .catch(err => console.error("Error:", err));
     }, []);
 
