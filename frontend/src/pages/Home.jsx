@@ -15,7 +15,9 @@ const imageUrls = [carousel1, carousel2, carousel3];
 export default function Home() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("http://localhost:5000/api/products",{
+  credentials: "include"
+})
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

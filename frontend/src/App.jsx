@@ -8,6 +8,7 @@ import ProductDetails from './pages/ProductDetails'
 import {BrowserRouter, Routes, Route,Link} from 'react-router-dom'
 import { CartProvider } from './contexts/CartContext'
 import { ProductProvider } from './contexts/ProductContext'
+import { Register } from './pages/Register'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path='/products/:id' element = {<ProductDetails />}/>
               <Route path='/cart' element = {<Cart />}/>
               <Route path='/login' element = {<Login/>}/>
+              <Route path='/register' element = {<Register/>}/>
           
         </Route>
         </Routes>

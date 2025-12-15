@@ -28,10 +28,11 @@ export function Navbar() {
             <Button variant="link">Login</Button>
         </Link>
           <Link to='/cart' className="self-center relative">
-            <MySheet/>
+            {/* <MySheet/> */}
+             <Button variant="link">Cart</Button>
             <MyBadge  className="absolute right-0 " variant="destructive">Badge</MyBadge>
         </Link>
-        <Link to='/login'>
+        <Link to='/register'>
             <Myavatar className="mx-5"/>
         </Link>
 

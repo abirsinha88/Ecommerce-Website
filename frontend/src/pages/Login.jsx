@@ -1,18 +1,38 @@
+import { useState } from "react"
 export function Login(){
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        const res = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify({ email, password })
+    });
+    //console.log("form submitted");
+    if (res.ok) {
+     
+      window.location.href = "/";
+    } else {
+      console.error("Login failed");
+    }
+    };
+
+
+    
     return(
         <>
-            <form action="http://localhost:5000/api/users" method="post">
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" />
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" />
+                <input type="email" name="email" id="email" value={email} onChange={(e)=>{
+                    setEmail(e.target.value); }}/>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" />
-                <label htmlFor="phone">Phone</label>
-                <input type="number" name="phone" id="phone" />
-                <label htmlFor="role">Role</label>
-                <input type="text" name="role" id="role" />
-                <input type="submit" value="Submit" />
+                <input type="password" name="password" id="password" value={password} onChange={(e)=>{
+                    setPassword(e.target.value); }}/>
+                <button type="submit">Submit</button>
             </form>
         </>
     )
