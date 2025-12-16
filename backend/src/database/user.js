@@ -2,6 +2,7 @@ import { db } from "./db.js";
 import jwt from "jsonwebtoken";  
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from 'bcrypt'
+import {cartMethods} from "./cart.js"
 
 const getAllUsers = async () => {
   const [rows] = await db.execute("select * from users");
@@ -57,7 +58,7 @@ const deleteUser = async () => {
 }
 
 const validateUser = async (user) => {
-  //console.log(user);
+
   const [fetchedUser] = await db.execute("select * from users where email= ?",[user.email]);
   if(fetchedUser.length == 0){
     throw{
@@ -75,8 +76,8 @@ const validateUser = async (user) => {
 
   }
   try {
-
-    const payload = {id : fetchedUser[0].id , name : fetchedUser[0].name}
+    const cartId = cartMethods.getCartId(fetchedUser[0].id);
+    const payload = {id : fetchedUser[0].id , cartId : cartId}
     const token = jwt.sign(payload,process.env.SECRET,{ expiresIn: "15m" })
     return token;
 

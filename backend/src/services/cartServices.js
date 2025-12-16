@@ -1,11 +1,47 @@
 import { cartMethods } from "../database/cart.js"
-const getAllCartItems = ()=> {
+const getCartProducts = async (cartId)=> {
     try {
-        const allCartItems = cartMethods.getAllCartItems()
+        const allCartItems =  await cartMethods.getCartProducts(cartId)
         return allCartItems;
         
     } catch (error) {
         throw error;
     }
 }
-export const cartServices = {getAllCartItems};
+const getCartId = async (userId)=> {
+    try {
+        const cartId = await cartMethods.getCartId(userId);
+        return cartId;
+        
+    } catch (error) {
+        throw error;
+    }
+}
+const addProduct = async (cartId,productId)=> {
+    try {
+        await cartMethods.addProduct(cartId,productId);
+        
+    } catch (error) {
+        throw error;
+    }
+}
+const updateQuantity = async (cartId,productId,action)=> {
+    try {
+        await cartMethods.updateQuantity(cartId,productId,action);
+        
+    } catch (error) {
+        throw error;
+    }
+}
+
+const removeProduct = async (cartId,productId)=> {
+    try {
+        await cartMethods.deleteProduct(cartId,productId);
+        
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+export const cartServices = {getCartProducts,getCartId,addProduct,updateQuantity,removeProduct};
