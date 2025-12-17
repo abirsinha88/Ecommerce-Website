@@ -3,7 +3,7 @@ export const getCartProducts = async (req,res) =>{
     try {
         const cartId = await cartServices.getCartId(req.user.id);
         const allCartItems = await cartServices.getCartProducts(cartId);
-        res.json(allCartItems)
+        res.json(allCartItems);
     }
         
      catch (error) {
@@ -31,9 +31,10 @@ export const updateQuantity = async (req,res) => {
     try {
         const productId = req.params.productId;
         const action = req.body.action;
+        
         const cartId = await cartServices.getCartId(req.user.id);
-        await cartServices.updateQuantity(cartId,productId,action);
-        res.json({status:"success"})
+        const updatedCart = await cartServices.updateQuantity(cartId,productId,action);
+        res.json(updatedCart);
     } catch (error) {
         res
         .status(error?.status || 500)
@@ -44,8 +45,8 @@ export const removeProduct = async (req,res) => {
     try {
         const productId = req.params.productId;
         const cartId = await cartServices.getCartId(req.user.id);
-        await cartServices.removeProduct(cartId,productId);
-        res.json({status:"success"})
+        const updatedCart = await cartServices.removeProduct(cartId,productId);
+        res.json(updatedCart)
     } catch (error) {
         res
         .status(error?.status || 500)

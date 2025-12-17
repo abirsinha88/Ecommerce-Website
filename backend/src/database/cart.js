@@ -1,7 +1,7 @@
 import { db } from "./db.js"
 const getCartProducts = async (cartId) =>{
     try {
-        const [rows] = await db.execute('select * from cart_items where cart_id = ?',[cartId]);
+        const [rows] = await db.execute('select product_id,quantity,name,price,description,image_url,catagory_id from cart_items join products on cart_items.product_id = products.id where cart_id = ?',[cartId])
         return rows;
         
     } catch (error) {
@@ -25,7 +25,7 @@ const getCartId = async (userId) => {
 const addProduct = async (cartId,productId) => {
     try {
         const [item] = await db.execute('select quantity from cart_items where cart_id = ? and product_id = ?',[cartId,productId]);
-        // console.log(cartId.cart_id,productId);
+
         if(item.length === 0){
             await db.execute('insert into cart_items(cart_id,product_id,quantity) values(?,?,?)',[cartId,productId,1])
         }
@@ -41,15 +41,24 @@ const addProduct = async (cartId,productId) => {
 }
 
 const updateQuantity = async (cartId,productId,action) => {
-    console.log(cartId,productId,action)
     try {
         const [item] = await db.execute('select quantity from cart_items where cart_id = ? and product_id = ?',[cartId,productId]);
 
         if(action == "increment"){
             await db.execute('update cart_items set quantity = ? where cart_id = ? and product_id = ?',[(item[0].quantity+1),cartId,productId]);
+            const [rows] = await db.execute('select product_id,quantity,name,price,description,image_url,catagory_id from cart_items join products on cart_items.product_id = products.id where cart_id = ?',[cartId])
+            return rows;
         }
         else if(action == "decrement"){
-            await db.execute('update cart_items set quantity = ? where cart_id = ? and product_id = ?',[(item[0].quantity-1),cartId,productId]);
+            if(item[0].quantity == 1){
+                await db.execute('delete from cart_items where cart_id = ? and product_id = ?',[cartId,productId]);
+            }
+            else{
+                await db.execute('update cart_items set quantity = ? where cart_id = ? and product_id = ?',[(item[0].quantity-1),cartId,productId]);
+            }
+                
+            const [rows] = await db.execute('select product_id,quantity,name,price,description,image_url,catagory_id from cart_items join products on cart_items.product_id = products.id where cart_id = ?',[cartId])
+            return rows;
         }
     
         else{
@@ -63,9 +72,10 @@ const updateQuantity = async (cartId,productId,action) => {
     }
 }
 const deleteProduct = async (cartId,productId) => {
-    //console.log(cartId,productId)
     try {
         const [item] = await db.execute('delete from cart_items where cart_id = ? and product_id = ?',[cartId,productId]);
+        const [rows] = await db.execute('select product_id,quantity,name,price,description,image_url,catagory_id from cart_items join products on cart_items.product_id = products.id where cart_id = ?',[cartId])
+            return rows;
     } catch (error) {
          throw{
       status: 500,

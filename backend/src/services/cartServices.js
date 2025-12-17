@@ -27,7 +27,8 @@ const addProduct = async (cartId,productId)=> {
 }
 const updateQuantity = async (cartId,productId,action)=> {
     try {
-        await cartMethods.updateQuantity(cartId,productId,action);
+       const updatedCart = await cartMethods.updateQuantity(cartId,productId,action);
+       return updatedCart;
         
     } catch (error) {
         throw error;
@@ -36,8 +37,8 @@ const updateQuantity = async (cartId,productId,action)=> {
 
 const removeProduct = async (cartId,productId)=> {
     try {
-        await cartMethods.deleteProduct(cartId,productId);
-        
+        const updatedCart = await cartMethods.deleteProduct(cartId,productId);
+        return updatedCart;
     } catch (error) {
         throw error;
     }
